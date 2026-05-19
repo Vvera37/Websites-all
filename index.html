@@ -13,7 +13,7 @@
       --bg: #0a0812; --surface: #110e1a; --surface-2: #17132280;
       --border: rgba(255,255,255,0.07); --border-bright: rgba(255,255,255,0.13);
       --text: #eeeae3; --text-2: rgba(238,234,227,0.52); --text-3: rgba(238,234,227,0.26);
-      --accent: #922B21; --gold: #D4AF37; --sienna: #A67C52; --r: 18px;
+      --accent: #C3161B; --gold: #DDBE89; --sienna: #DDBE89; --r: 18px;
     }
     html { scroll-behavior: smooth; }
     body {
@@ -21,8 +21,8 @@
       font-family: 'DM Sans', 'Noto Serif SC', sans-serif;
       font-size: 16px; line-height: 1.65;
       overflow-x: hidden; -webkit-font-smoothing: antialiased;
-      background-image: radial-gradient(ellipse at 20% 10%, rgba(80,20,120,0.18) 0%, transparent 50%),
-                        radial-gradient(ellipse at 80% 80%, rgba(100,10,60,0.12) 0%, transparent 45%);
+      background-image: radial-gradient(ellipse at 20% 10%, rgba(120,10,10,0.18) 0%, transparent 50%),
+                        radial-gradient(ellipse at 80% 80%, rgba(100,60,10,0.12) 0%, transparent 45%);
       background-attachment: fixed;
     }
     body::after {
@@ -31,12 +31,12 @@
     }
     .glow-a {
       position: fixed; width: 700px; height: 700px; pointer-events: none; z-index: 0;
-      background: radial-gradient(circle, rgba(146,43,33,0.09) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(195,22,27,0.09) 0%, transparent 70%);
       top: -200px; left: -200px; animation: driftA 18s ease-in-out infinite alternate;
     }
     .glow-b {
       position: fixed; width: 500px; height: 500px; pointer-events: none; z-index: 0;
-      background: radial-gradient(circle, rgba(212,175,55,0.07) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(221,190,137,0.07) 0%, transparent 70%);
       bottom: -100px; right: -100px; animation: driftB 22s ease-in-out infinite alternate;
     }
     @keyframes driftA { from { transform: translate(0,0); } to { transform: translate(80px, 60px); } }
@@ -100,11 +100,11 @@
     }
     .btn-primary {
       background: var(--accent); color: #fff;
-      box-shadow: 0 0 0 1px rgba(146,43,33,0.35), 0 4px 20px rgba(146,43,33,0.3);
+      box-shadow: 0 0 0 1px rgba(195,22,27,0.35), 0 4px 20px rgba(195,22,27,0.3);
     }
     .btn-primary:hover {
-      background: #a8332a;
-      box-shadow: 0 0 0 1px rgba(146,43,33,0.5), 0 8px 28px rgba(146,43,33,0.4);
+      background: #a81217;
+      box-shadow: 0 0 0 1px rgba(195,22,27,0.5), 0 8px 28px rgba(195,22,27,0.4);
       transform: translateY(-1px);
     }
     .btn-ghost { background: transparent; color: var(--text-2); border: 1px solid var(--border-bright); }
@@ -152,7 +152,7 @@
       text-decoration: none; color: var(--text); font-size: 14px; font-weight: 500;
       transition: all 0.2s; width: fit-content;
     }
-    .app-store-btn:hover { background: rgba(146,43,33,0.1); border-color: rgba(146,43,33,0.35); color: var(--accent); transform: translateY(-1px); }
+    .app-store-btn:hover { background: rgba(195,22,27,0.1); border-color: rgba(195,22,27,0.35); color: var(--accent); transform: translateY(-1px); }
 
     /* PHONE */
     .app-card-visual {
@@ -162,8 +162,8 @@
     }
     .app-card-visual::before {
       content: ''; position: absolute; inset: 0;
-      background: radial-gradient(ellipse at 35% 35%, rgba(146,43,33,0.1) 0%, transparent 55%),
-                  radial-gradient(ellipse at 75% 75%, rgba(212,175,55,0.07) 0%, transparent 45%);
+      background: radial-gradient(ellipse at 35% 35%, rgba(195,22,27,0.1) 0%, transparent 55%),
+                  radial-gradient(ellipse at 75% 75%, rgba(221,190,137,0.07) 0%, transparent 45%);
     }
     .phone-mock { position: relative; z-index: 1; width: 196px; }
     .phone-shell {
@@ -180,14 +180,14 @@
     .screen-title { font-size: 11px; font-weight: 600; color: #eee; letter-spacing: -0.01em; }
     .screen-sub { font-size: 9px; color: rgba(255,255,255,0.35); margin-top: 2px; }
     .scan-area {
-      background: rgba(146,43,33,0.06); border: 1.5px dashed rgba(146,43,33,0.3);
+      background: rgba(195,22,27,0.06); border: 1.5px dashed rgba(195,22,27,0.3);
       border-radius: 14px; height: 104px;
       display: flex; align-items: center; justify-content: center;
       margin-bottom: 14px; position: relative; overflow: hidden;
     }
     .scan-line {
       position: absolute; left: 8px; right: 8px; height: 1.5px;
-      background: linear-gradient(90deg, transparent, rgba(146,43,33,0.9), transparent);
+      background: linear-gradient(90deg, transparent, rgba(195,22,27,0.9), transparent);
       animation: scanMove 2.6s ease-in-out infinite;
     }
     @keyframes scanMove { 0% { top: 12%; } 50% { top: 80%; } 100% { top: 12%; } }
@@ -196,7 +196,7 @@
     .result-row { background: rgba(255,255,255,0.035); border-radius: 8px; padding: 7px 10px; display: flex; align-items: center; gap: 8px; }
     .result-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
     .result-bar { flex: 1; height: 5px; background: rgba(255,255,255,0.07); border-radius: 3px; overflow: hidden; }
-    .result-bar-fill { height: 100%; background: linear-gradient(90deg, var(--gold), rgba(212,175,55,0.4)); border-radius: 3px; }
+    .result-bar-fill { height: 100%; background: linear-gradient(90deg, var(--gold), rgba(221,190,137,0.4)); border-radius: 3px; }
 
     /* PHILOSOPHY */
     .philosophy-section { padding: 0 0 100px; }
@@ -204,9 +204,9 @@
     .phil-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: 32px 28px; transition: border-color 0.25s; }
     .phil-card:hover { border-color: var(--border-bright); }
     .phil-icon { width: 40px; height: 40px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 17px; margin-bottom: 20px; }
-    .phil-icon.blue { background: rgba(146,43,33,0.12); }
-    .phil-icon.gold { background: rgba(212,175,55,0.1); }
-    .phil-icon.green { background: rgba(166,124,82,0.1); }
+    .phil-icon.blue { background: rgba(195,22,27,0.12); }
+    .phil-icon.gold { background: rgba(221,190,137,0.1); }
+    .phil-icon.green { background: rgba(221,190,137,0.08); }
     .phil-title { font-size: 16px; font-weight: 500; letter-spacing: -0.01em; margin-bottom: 10px; }
     .phil-body { font-size: 14px; color: var(--text-2); line-height: 1.72; font-weight: 300; }
 
@@ -226,7 +226,7 @@
     .stat-num {
       font-family: 'Instrument Serif', serif; font-size: 42px; font-weight: 400;
       letter-spacing: -0.03em; line-height: 1; margin-bottom: 6px;
-      color: #D4AF37;
+      color: #DDBE89;
     }
     .stat-label { font-size: 13px; color: var(--text-3); }
 
@@ -242,8 +242,8 @@
     .logo-v1 { font-family: 'Cinzel', serif; font-size: 17px; font-weight: 700; letter-spacing: 0.04em; }
     .logo-v2 { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 700; letter-spacing: 0.02em; }
     .logo-v3 { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 800; letter-spacing: -0.01em; }
-    .logo-red { color: #922B21; }
-    .logo-sienna { color: #A67C52; }
+    .logo-red { color: #C3161B; }
+    .logo-sienna { color: #DDBE89; }
     .logo-pick {
       position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
       background: #17132280; border: 1px solid rgba(255,255,255,0.13);
@@ -299,7 +299,7 @@
       <span class="hero-eyebrow-dot"></span>
       独立开发者出品 · 用心打磨每一个工具
     </div>
-    <h1 class="fade-up"><span style="color:#922B21">好工具，</span><br><span style="color:#922B21">让生活</span><em style="color:#A67C52">多一点从容</em></h1>
+    <h1 class="fade-up"><span style="color:#C3161B">好工具，</span><br><span style="color:#C3161B">让生活</span><em style="color:#DDBE89">多一点从容</em></h1>
     <p class="hero-sub fade-up">
       我们相信，<strong>一个真正好用的工具</strong>，<br>
       能让日常少一点摩擦，多一点时间做真正重要的事。
@@ -334,12 +334,12 @@
           </div>
           <div class="section-label" style="margin-bottom:8px;">Document Scanner</div>
           <div class="app-name">扫描鸡</div>
-          <p class="app-tagline">拍一下，文字就出来了。<br>把「纸」变成「文件」，只需一秒。</p>
+          <p class="app-tagline">那些手写的笔记、课堂上记下的灵感、泛黄的日记页——<br>值得被好好留存。扫一下，变成永远不会丢的电子档。</p>
           <ul class="feature-list">
-            <li>智能识字，印刷体闪电识别，手写体 AI 加持</li>
-            <li>图片转 PDF，多张拍摄，一键合并成文件</li>
-            <li>PDF 转 Word，精准还原排版，拿来就能改</li>
-            <li>干净导出，无水印，文件永远属于你</li>
+            <li>手写识别 AI 加持，笔记、日记、课堂速记都能识</li>
+            <li>多张合并成 PDF，整本笔记一次扫完</li>
+            <li>PDF 转 Word，排版不乱，拿来直接用</li>
+            <li>无水印导出，你的资料永远是你的</li>
           </ul>
         </div>
         <a href="https://apps.apple.com/app/id6760631793" target="_blank" rel="noopener" class="app-store-btn">
@@ -462,17 +462,17 @@
       <div class="phil-card fade-up">
         <div class="phil-icon blue">✦</div>
         <div class="phil-title">追求极致</div>
-        <p class="phil-body">每一个细节都值得被打磨。我们相信，优秀的工具不只是功能完备，而是在每一次使用中都能让你感受到——「对，就是这样」。</p>
+        <p class="phil-body">细节不会说谎。一个交互顺不顺，一行文字准不准，用一次就知道。我们把每个细节当成签名，不交潦草的东西。</p>
       </div>
       <div class="phil-card fade-up" style="transition-delay:0.1s">
         <div class="phil-icon gold">◎</div>
         <div class="phil-title">以人为本</div>
-        <p class="phil-body">工具应该让生活更从容，而不是制造新的负担。我们从真实的使用场景出发，用软件解决那些「卡壳」的瞬间。</p>
+        <p class="phil-body">好工具是摸得到的——你打开它，它就帮你把事情搞定，不绕弯，不废话。我们从真实的卡壳时刻出发，做那些「刚好需要」的功能。</p>
       </div>
       <div class="phil-card fade-up" style="transition-delay:0.2s">
         <div class="phil-icon green">⬡</div>
         <div class="phil-title">独立精神</div>
-        <p class="phil-body">没有大公司的资源，但有不被稀释的初心。保持小团队，对自己的每一行代码负责，对每一位用户认真。</p>
+        <p class="phil-body">没有 KPI，没有委员会，只有两个人和一件想做好的事。小团队的好处是：我们对每一行代码签字，对每一个用户反馈亲自回。</p>
       </div>
     </div>
   </div>
@@ -487,10 +487,10 @@
         <div class="section-label">About</div>
         <h2 class="about-headline">一支小团队，<br>做<em>爱不释手</em>的工具</h2>
         <p class="about-text">
-          vming Studio 是一支由产品人和工程师组成的独立开发团队。我们没有大公司的资源，但我们有一件事想做好——把那些日常用得上、却一直不够顺手的小事，用软件解决掉。
+          vming Studio 就两个人。我们不是公司，更像是两个闲不住的人，把生活里碰到的麻烦事一件件做成 App。
         </p>
         <p class="about-text">
-          扫描鸡是我们迈出的第一步。未来还有更多工具正在路上。如果你有好的想法，或者只是想说声「这个 App 还不错」，都欢迎来找我们。
+          扫描鸡是第一步——因为我们自己也有一堆手写笔记不知道放哪。接下来还有更多在路上。有什么想说的，直接发邮件，我们真的会看。
         </p>
         <a href="mailto:408350291@qq.com" class="about-email">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
