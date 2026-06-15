@@ -1,0 +1,521 @@
+<!-- 同声 · 产品策划案 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>同声 · 产品策划案</title>
+<style>
+:root{
+  --ink:#14161F; --ink-2:#1B1E2A; --ink-3:#242838; --line:#33384A;
+  --paper:#F4EFE4; --paper-2:#E7E0D0; --paper-dim:#B9B1A0; --paper-dimmer:#7C7768;
+  --cinnabar:#C0392B; --cinnabar-soft:#D9614F;
+  --gold:#C9A35A; --gold-soft:#E0C588;
+  --wood:#5E9B72; --fire:#C0392B; --earth:#BE8A3D; --metal:#D6CDB0; --water:#3E6B96;
+  --serif:"Songti SC","STSong","Noto Serif SC","Source Han Serif SC","SimSun",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;
+  --maxw:920px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--ink); color:var(--paper);
+  font-family:var(--sans); line-height:1.85; font-size:16px;
+  -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+body::before{ /* faint paper-grain / atmosphere */
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+  background:
+    radial-gradient(1200px 700px at 80% -10%, rgba(192,57,43,.10), transparent 60%),
+    radial-gradient(1000px 600px at -10% 30%, rgba(62,107,150,.12), transparent 55%),
+    radial-gradient(900px 900px at 50% 120%, rgba(201,163,90,.07), transparent 60%);
+}
+.wrap{position:relative; z-index:1; max-width:var(--maxw); margin:0 auto; padding:0 24px}
+section{padding:72px 0; border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:none}
+
+/* ---------- type ---------- */
+h1,h2,h3{font-family:var(--serif); font-weight:600; line-height:1.25; letter-spacing:.02em}
+.eyebrow{
+  font-family:var(--serif); font-size:13px; letter-spacing:.5em; color:var(--gold);
+  text-transform:none; margin:0 0 18px; padding-left:2px;
+}
+h2{font-size:30px; margin:0 0 6px; color:var(--paper)}
+h2 .num{color:var(--gold); font-size:18px; vertical-align:.35em; margin-right:14px; letter-spacing:0}
+.lead{color:var(--paper-dim); font-size:17px; max-width:62ch; margin:14px 0 0}
+h3{font-size:20px; color:var(--gold-soft); margin:34px 0 8px}
+p{margin:12px 0; color:#D8D2C5}
+strong{color:var(--paper); font-weight:600}
+em{color:var(--cinnabar-soft); font-style:normal}
+a{color:var(--gold-soft)}
+.hair{height:1px; background:linear-gradient(90deg,transparent,var(--gold),transparent); opacity:.5; margin:0}
+
+/* seal */
+.seal{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:64px; height:64px; border:2px solid var(--cinnabar); border-radius:8px;
+  color:var(--cinnabar); font-family:var(--serif); font-size:26px; font-weight:700;
+  letter-spacing:0; line-height:1; box-shadow:inset 0 0 0 3px rgba(192,57,43,.18);
+  writing-mode:vertical-rl; padding:8px 2px; background:rgba(192,57,43,.04);
+}
+
+/* ---------- hero ---------- */
+.hero{
+  min-height:96vh; display:flex; flex-direction:column; justify-content:center;
+  border-bottom:1px solid var(--line); position:relative;
+}
+.hero .veyebrow{
+  writing-mode:vertical-rl; position:absolute; top:8%; right:max(24px,calc((100vw - var(--maxw))/2 + 24px));
+  font-family:var(--serif); letter-spacing:.55em; color:var(--gold); font-size:15px; opacity:.85;
+}
+.hero-mark{font-family:var(--serif); font-size:120px; line-height:1; color:var(--paper); letter-spacing:.12em; margin:0}
+.hero-mark .py{display:block; font-family:var(--sans); font-size:18px; letter-spacing:.7em; color:var(--paper-dim); margin-top:18px; padding-left:.7em}
+.hero-source{font-family:var(--serif); font-size:22px; color:var(--gold-soft); margin:34px 0 4px; letter-spacing:.08em}
+.hero-source span{color:var(--paper-dimmer); font-size:15px; letter-spacing:.04em}
+.hero-soul{font-family:var(--serif); font-size:26px; color:var(--paper); max-width:24ch; line-height:1.5; margin:30px 0 0}
+.hero-soul b{color:var(--cinnabar-soft); font-weight:600}
+.hero-meta{margin-top:48px; color:var(--paper-dimmer); font-size:13px; letter-spacing:.12em}
+.scroll-cue{position:absolute; bottom:34px; left:0; color:var(--paper-dimmer); font-size:12px; letter-spacing:.3em; animation:bob 2.4s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0);opacity:.5}50%{transform:translateY(6px);opacity:1}}
+
+/* reveal */
+.reveal{opacity:0; transform:translateY(18px); transition:opacity .8s ease, transform .8s ease}
+.reveal.in{opacity:1; transform:none}
+
+/* ---------- soul pillars ---------- */
+.pillars{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:34px}
+.pillar{background:var(--ink-2); border:1px solid var(--line); border-radius:12px; padding:24px 22px; position:relative; overflow:hidden}
+.pillar::before{content:attr(data-cn); position:absolute; right:-6px; bottom:-22px; font-family:var(--serif); font-size:88px; color:rgba(201,163,90,.06); line-height:1}
+.pillar h4{font-family:var(--serif); font-size:18px; color:var(--gold-soft); margin:0 0 8px}
+.pillar p{font-size:14.5px; margin:0; color:var(--paper-dim)}
+.vs{display:flex; gap:0; margin:30px 0 0; border:1px solid var(--line); border-radius:12px; overflow:hidden}
+.vs > div{flex:1; padding:22px; font-family:var(--serif)}
+.vs .west{background:var(--ink-2); color:var(--paper-dim)}
+.vs .east{background:linear-gradient(180deg,rgba(192,57,43,.10),rgba(192,57,43,.02)); color:var(--paper); border-left:1px solid var(--line)}
+.vs small{display:block; font-family:var(--sans); font-size:12px; letter-spacing:.3em; color:var(--paper-dimmer); margin-bottom:8px}
+.vs .east b{color:var(--cinnabar-soft)}
+
+/* ---------- palette ---------- */
+.swatches{display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:14px; margin-top:30px}
+.sw{border-radius:10px; padding:14px; border:1px solid rgba(255,255,255,.08); min-height:118px; display:flex; flex-direction:column; justify-content:flex-end}
+.sw .nm{font-family:var(--serif); font-size:19px; font-weight:600}
+.sw .hx{font-size:12px; letter-spacing:.08em; opacity:.8; font-family:var(--sans)}
+.sw .role{font-size:12px; opacity:.7; margin-top:2px}
+
+/* element legend */
+.elrow{display:flex; flex-wrap:wrap; gap:10px; margin-top:22px}
+.el{display:flex; align-items:center; gap:8px; background:var(--ink-2); border:1px solid var(--line); padding:8px 14px 8px 8px; border-radius:30px; font-size:14px}
+.el i{width:18px; height:18px; border-radius:50%; display:inline-block}
+
+/* type spec */
+.typespec{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:24px}
+.typecard{background:var(--ink-2); border:1px solid var(--line); border-radius:12px; padding:24px}
+.typecard .sample-serif{font-family:var(--serif); font-size:34px; color:var(--paper); line-height:1.3}
+.typecard .sample-sans{font-family:var(--sans); font-size:24px; color:var(--paper)}
+.typecard .label{font-size:12px; letter-spacing:.25em; color:var(--gold); margin-top:14px}
+.typecard p{font-size:13.5px; color:var(--paper-dim); margin:6px 0 0}
+
+/* mockups */
+.shots{display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:14px}
+.shot{display:flex; flex-direction:column; align-items:center}
+.shot svg{width:100%; height:auto; filter:drop-shadow(0 30px 50px rgba(0,0,0,.5))}
+.shot .cap{font-family:var(--serif); font-size:16px; color:var(--gold-soft); margin-top:18px}
+.shot .sub{font-size:13px; color:var(--paper-dim); text-align:center; margin-top:4px; max-width:30ch}
+
+/* feature blocks */
+.feat{display:grid; grid-template-columns:auto 1fr; gap:22px; align-items:start; padding:26px 0; border-top:1px solid var(--line)}
+.feat:first-of-type{border-top:none}
+.feat .fnum{font-family:var(--serif); font-size:15px; color:var(--cinnabar); writing-mode:vertical-rl; letter-spacing:.3em; padding-top:4px}
+.feat h3{margin:0 0 6px}
+.feat p{margin:6px 0 0; font-size:15px}
+.tag{display:inline-block; font-size:12px; color:var(--gold-soft); border:1px solid var(--gold); border-radius:20px; padding:2px 12px; margin-top:10px; letter-spacing:.08em}
+
+/* roadmap */
+.road{display:grid; gap:0; margin-top:24px; border-left:2px solid var(--line); padding-left:0}
+.phase{position:relative; padding:0 0 30px 30px}
+.phase::before{content:""; position:absolute; left:-7px; top:6px; width:12px; height:12px; border-radius:50%; background:var(--cinnabar); box-shadow:0 0 0 4px rgba(192,57,43,.18)}
+.phase h4{font-family:var(--serif); color:var(--gold-soft); margin:0 0 4px; font-size:17px}
+.phase .t{font-size:12px; letter-spacing:.2em; color:var(--paper-dimmer)}
+.phase p{font-size:14.5px; margin:6px 0 0}
+
+/* money table */
+.tbl{width:100%; border-collapse:collapse; margin-top:22px; font-size:14.5px}
+.tbl th,.tbl td{text-align:left; padding:12px 14px; border-bottom:1px solid var(--line)}
+.tbl th{font-family:var(--serif); color:var(--gold); font-weight:600; font-size:14px; letter-spacing:.1em}
+.tbl td:last-child,.tbl th:last-child{text-align:right; color:var(--paper)}
+
+/* closing */
+.closing{text-align:center; padding:90px 0 110px}
+.closing .seal{width:88px; height:88px; font-size:34px; margin-bottom:30px}
+.closing .line{font-family:var(--serif); font-size:30px; color:var(--paper); line-height:1.6; max-width:22ch; margin:0 auto}
+.closing .line b{color:var(--cinnabar-soft)}
+.closing small{display:block; margin-top:30px; color:var(--paper-dimmer); letter-spacing:.3em; font-size:12px}
+
+@media (max-width:760px){
+  .pillars{grid-template-columns:1fr}
+  .shots{grid-template-columns:1fr; max-width:300px; margin-inline:auto}
+  .typespec{grid-template-columns:1fr}
+  .vs{flex-direction:column}
+  .hero-mark{font-size:84px}
+  h2{font-size:25px}
+  .hero .veyebrow{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1; transform:none; transition:none}
+  .scroll-cue{animation:none}
+  .spin{animation:none !important}
+}
+</style>
+
+<div class="hero wrap">
+  <div class="veyebrow">同 声 相 应 · 同 气 相 求</div>
+  <p class="eyebrow">產 品 策 劃 案</p>
+  <h1 class="hero-mark">同声<span class="py">T Ó N G   S H Ē N G</span></h1>
+  <p class="hero-source">同声相应，同气相求。<span>——《周易 · 乾 · 文言》</span></p>
+  <p class="hero-soul">把祖先的智慧，<br>做成<b>这一代人愿意主动分享</b>的样子。</p>
+  <p class="hero-meta">东方命理合盘 · 微信小程序 · 个人开发者 / 2 人团队</p>
+  <div class="scroll-cue">向 下 ▾</div>
+</div>
+
+<section class="wrap reveal">
+  <p class="eyebrow">壹 · 產 品 之 魂</p>
+  <h2><span class="num">一</span>它到底是什么</h2>
+  <p class="lead">不是一个"算命工具"。它是一件让年轻人愿意随身带着、愿意主动晒出去的<strong>东方文化随身物</strong>——内核是真功夫的八字命理，外壳是这一代人审美里的"高级"与"有品位"。</p>
+
+  <h3>三根支柱</h3>
+  <div class="pillars">
+    <div class="pillar" data-cn="體">
+      <h4>专业为体</h4>
+      <p>每一句结论都从真实命理逻辑推出，经得起懂行的人推敲。三式与八字的真功夫，是抄不走的护城河。</p>
+    </div>
+    <div class="pillar" data-cn="器">
+      <h4>当代为器</h4>
+      <p>新中式视觉、流动水墨、可截图分享的形态。让"玩八字"成为一件有品位、值得发出去的事。</p>
+    </div>
+    <div class="pillar" data-cn="魂">
+      <h4>文化为魂</h4>
+      <p>用户用完不只是"测了个命"，而是"我学到了、我被触动了、我想了解更多"。文化才真正被传播。</p>
+    </div>
+  </div>
+
+  <h3>心智定位：不踩星座，占领"更东方"</h3>
+  <div class="vs">
+    <div class="west"><small>西 方</small>星座，是借来的一套宇宙观。</div>
+    <div class="east"><small>东 方</small>八字，是<b>写在我们血脉里</b>的另一套宇宙观。</div>
+  </div>
+  <p class="lead">不喊"比星座准"——那会陷入辩论、树敌、踩审核红线。我们用从容的文化自信，把"玩八字"变成一件更酷、更有根的事。把"算命""预测吉凶"全部换成"命理分析""文化解读"。</p>
+</section>
+
+<section class="wrap reveal">
+  <p class="eyebrow">貳 · 視 覺 系 統</p>
+  <h2><span class="num">二</span>看一眼就知道"这是真懂的人做的"</h2>
+  <p class="lead">市面上的八字产品视觉只有两个极端：土味"算命摊"，或丢了文化味的西式极简。我们走第三条路——<strong>新中式 / 东方美学</strong>：根植传统，用当代设计语言重新表达。我们做的最大胆的一个选择，是用"<em>水墨夜</em>"做底——深玄之色为天地，月白宣纸为器物，朱砂一点为印信。</p>
+
+  <h3>传统色 · 主色卡</h3>
+  <p>不用土味金。每一个颜色都有它在古籍里的名字，名字本身就是文化传播。</p>
+  <div class="swatches">
+    <div class="sw" style="background:#14161F;color:#E7E0D0"><span class="nm">玄</span><span class="hx">#14161F</span><span class="role">天地底色</span></div>
+    <div class="sw" style="background:#F4EFE4;color:#3a352b"><span class="nm">月白</span><span class="hx">#F4EFE4</span><span class="role">宣纸 · 卡面</span></div>
+    <div class="sw" style="background:#C0392B;color:#fff"><span class="nm">朱砂</span><span class="hx">#C0392B</span><span class="role">印信 · 点睛</span></div>
+    <div class="sw" style="background:#C9A35A;color:#2a230f"><span class="nm">缃</span><span class="hx">#C9A35A</span><span class="role">界栏 · 描金</span></div>
+    <div class="sw" style="background:#3E6B96;color:#fff"><span class="nm">黛蓝</span><span class="hx">#3E6B96</span><span class="role">水之意象</span></div>
+  </div>
+
+  <h3>五行视觉系统 · 这是星座做不到的</h3>
+  <p>金木水火土不只是字，是一套天然的视觉语言：五种颜色、五种质感、五种动态。每个人八字的五行结构不同，生成的视觉就不同——这是十二宫图永远给不了的丰富度。</p>
+  <div class="elrow">
+    <span class="el"><i style="background:var(--wood)"></i>木 · 苍翠 · 生长</span>
+    <span class="el"><i style="background:var(--fire)"></i>火 · 朱砂 · 升腾</span>
+    <span class="el"><i style="background:var(--earth)"></i>土 · 赭黄 · 厚载</span>
+    <span class="el"><i style="background:var(--metal)"></i>金 · 素白 · 肃敛</span>
+    <span class="el"><i style="background:var(--water)"></i>水 · 黛蓝 · 流润</span>
+  </div>
+
+  <h3>签名图形 · 五行流转环</h3>
+  <p>整个产品被记住的那一个图形：五行相生相克的"气"在环上流动。它是品牌印记，也是每个人命格的具象。下面是它的样子（外环相生，内线相克）：</p>
+  <div style="display:flex;justify-content:center;margin-top:18px">
+    <svg viewBox="0 0 320 320" width="300" role="img" aria-label="五行流转环">
+      <defs>
+        <radialGradient id="halo" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#C9A35A" stop-opacity=".18"/>
+          <stop offset="100%" stop-color="#C9A35A" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <circle cx="160" cy="160" r="150" fill="url(#halo)"/>
+      <circle cx="160" cy="160" r="118" fill="none" stroke="#33384A" stroke-width="1"/>
+      <g class="spin" style="transform-origin:160px 160px;animation:rot 60s linear infinite">
+      <!-- relations: pentagon nodes. positions for 木火土金水 clockwise from top -->
+      <!-- 相克 inner lines (pentagram) -->
+      <g stroke="#C0392B" stroke-width="1.2" stroke-dasharray="3 5" opacity=".55">
+        <line x1="160" y1="42" x2="272" y2="246"/>
+        <line x1="272" y1="246" x2="48" y2="124"/>
+        <line x1="48" y1="124" x2="272" y2="124"/>
+        <line x1="272" y1="124" x2="48" y2="246"/>
+        <line x1="48" y1="246" x2="160" y2="42"/>
+      </g>
+      <!-- nodes -->
+      <g font-family="Songti SC, STSong, serif" font-size="22" text-anchor="middle">
+        <g><circle cx="160" cy="42" r="26" fill="#5E9B72"/><text x="160" y="50" fill="#0e1a12">木</text></g>
+        <g><circle cx="272" cy="124" r="26" fill="#C0392B"/><text x="272" y="132" fill="#2a0c08">火</text></g>
+        <g><circle cx="230" cy="252" r="26" fill="#BE8A3D"/><text x="230" y="260" fill="#2a1f0a">土</text></g>
+        <g><circle cx="90" cy="252" r="26" fill="#D6CDB0"/><text x="90" y="260" fill="#2c2a1f">金</text></g>
+        <g><circle cx="48" cy="124" r="26" fill="#3E6B96"/><text x="48" y="132" fill="#0a1722">水</text></g>
+      </g>
+      </g>
+      <text x="160" y="166" text-anchor="middle" font-family="Songti SC,serif" font-size="15" fill="#C9A35A" letter-spacing="6">五行流轉</text>
+    </svg>
+  </div>
+
+  <h3>字体 · 留白 · 竖排</h3>
+  <div class="typespec">
+    <div class="typecard">
+      <div class="sample-serif">壬水 · 通河</div>
+      <div class="label">標 題 · 宋 體</div>
+      <p>思源宋体 / 汇文明朝体。竖排眉题、大量留白，瞬间区隔"地摊"与"高级"。</p>
+    </div>
+    <div class="typecard">
+      <div class="sample-sans">你五行缺火，TA 火旺</div>
+      <div class="label">正 文 · 黑 體</div>
+      <p>苹方 / 思源黑体。结论与解读用现代黑体，保证易读，不卖弄。</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap reveal">
+  <p class="eyebrow">叁 · 產 品 形 態 · 實 例 圖</p>
+  <h2><span class="num">三</span>三屏看懂这个产品</h2>
+  <p class="lead">先做一个能让人炫耀的"单人命格卡"做病毒入口（合盘天生私密、不爱晒，所以先拆一个像 MBTI 那样的身份标签出来）；再用"盲合"逼出对方一起参与；最后用"分享解锁"在你支付能力开通前，把收款限制变成裂变引擎。</p>
+
+  <div class="shots">
+    <!-- ============ SHOT 1: 命格卡片 ============ -->
+    <div class="shot">
+      <svg viewBox="0 0 280 580" role="img" aria-label="命格卡片界面样例">
+        <rect x="6" y="6" width="268" height="568" rx="34" fill="#0f111a" stroke="#33384A"/>
+        <rect x="14" y="14" width="252" height="552" rx="28" fill="#16181F"/>
+        <!-- status bar -->
+        <text x="32" y="42" fill="#8b8576" font-family="PingFang SC,sans-serif" font-size="11">9:41</text>
+        <text x="248" y="42" fill="#8b8576" font-family="PingFang SC,sans-serif" font-size="11" text-anchor="end">同声</text>
+        <!-- the card: rice paper -->
+        <rect x="30" y="62" width="220" height="380" rx="18" fill="#F4EFE4"/>
+        <rect x="30" y="62" width="220" height="380" rx="18" fill="none" stroke="#C9A35A" stroke-opacity=".5"/>
+        <!-- seal top-right -->
+        <rect x="208" y="76" width="30" height="30" rx="5" fill="none" stroke="#C0392B"/>
+        <text x="223" y="97" fill="#C0392B" font-family="Songti SC,serif" font-size="16" text-anchor="middle">声</text>
+        <!-- element mini-ring -->
+        <g transform="translate(140,150)">
+          <circle r="34" fill="none" stroke="#e6dcc6" stroke-width="6"/>
+          <circle r="34" fill="none" stroke="#3E6B96" stroke-width="6" stroke-dasharray="120 94" transform="rotate(-90)"/>
+          <circle r="34" fill="none" stroke="#5E9B72" stroke-width="6" stroke-dasharray="48 166" stroke-dashoffset="-120" transform="rotate(-90)"/>
+          <text y="6" text-anchor="middle" font-family="Songti SC,serif" font-size="22" fill="#2c4a6e">水</text>
+        </g>
+        <!-- type name -->
+        <text x="140" y="232" text-anchor="middle" font-family="Songti SC,serif" font-size="13" fill="#9a7b3c" letter-spacing="3">壬 水 格</text>
+        <text x="140" y="270" text-anchor="middle" font-family="Songti SC,serif" font-size="34" font-weight="700" fill="#1b1e2a">破浪者</text>
+        <!-- tagline -->
+        <text x="140" y="306" text-anchor="middle" font-family="PingFang SC,sans-serif" font-size="13" fill="#5f5848">自由不羁，最怕被定义。</text>
+        <line x1="70" y1="330" x2="210" y2="330" stroke="#d8cdb3"/>
+        <!-- traits -->
+        <text x="140" y="356" text-anchor="middle" font-family="Songti SC,serif" font-size="12.5" fill="#7a7361">江河之水，奔流通海</text>
+        <text x="140" y="378" text-anchor="middle" font-family="Songti SC,serif" font-size="12.5" fill="#7a7361">智多谋远 · 易动难安</text>
+        <!-- percentile chip -->
+        <rect x="86" y="398" width="108" height="26" rx="13" fill="#1b1e2a"/>
+        <text x="140" y="415" text-anchor="middle" font-family="PingFang SC,sans-serif" font-size="11" fill="#E0C588">稀有度 · 前 8.7%</text>
+        <!-- CTA -->
+        <rect x="40" y="470" width="200" height="46" rx="23" fill="#C0392B"/>
+        <text x="140" y="499" text-anchor="middle" font-family="PingFang SC,sans-serif" font-size="15" fill="#fff">测测我们合不合 →</text>
+        <text x="140" y="540" text-anchor="middle" font-family="PingFang SC,sans-serif" font-size="11" fill="#6a6557">长按保存 · 分享我的命格卡</text>
+      </svg>
+      <div class="cap">命格卡 · 病毒入口</div>
+      <div class="sub">把日主 / 格局 / 五行结构翻译成有人设、有视觉的"命格类型"。人人爱晒，是免费流量的源头。</div>
+    </div>
+
+    <!-- ============ SHOT 2: 合盘报告 ============ -->
+    <div class="shot">
+      <svg viewBox="0 0 280 580" role="img" aria-label="合盘报告界面样例">
+        <rect x="6" y="6" width="268" height="568" rx="34" fill="#0f111a" stroke="#33384A"/>
+        <rect x="14" y="14" width="252" height="552" rx="28" fill="#16181F"/>
+        <text x="140" y="46" fill="#C9A35A" font-family="Songti SC,serif" font-size="15" text-anchor="middle" letter-spacing="3">合 盘 · 同声</text>
+        <!-- interlocking five-element rings -->
+        <g transform="translate(140,120)">
+          <circle cx="-22" r="40" fill="none" stroke="#3E6B96" stroke-width="7" opacity=".9"/>
+          <circle cx="22" r="40" fill="none" stroke="#C0392B" stroke-width="7" opacity=".9"/>
+          <text x="-22" y="5" text-anchor="middle" font-family="Songti SC,serif" font-size="16" fill="#6fa0c8">水</text>
+          <text x="22" y="5" text-anchor="middle" font-family="Songti SC,serif" font-size="16" fill="#e08070">火</text>
+        </g>
+        <!-- score, precise -->
+        <text x="140" y="210" text-anchor="middle" font-family="Songti SC,serif" font-size="46" font-weight="700" fill="#F4EFE4">87.3<tspan font-size="20" fill="#C9A35A">%</tspan></text>
+        <text x="140" y="232" text-anchor="middle" font-family="PingFang SC,sans-serif" font-size="11.5" fill="#8b8576">契合度 · 超过 84% 的测试关系</text>
+        <!-- tension insight -->
+        <rect x="28" y="252" width="224" height="92" rx="12" fill="#1f2230" stroke="#3a2622"/>
+        <rect x="28" y="252" width="4" height="92" rx="2" fill="#C0392B"/>
+        <text x="44" y="276" font-family="Songti SC,serif" font-size="13" fill="#E0C588">一个你们必须解决的张力</text>
+        <text x="44" y="299" font-family="PingFang SC,sans-serif" font-size="11.5" fill="#cfc8ba">你的八字需要空间，</text>
+        <text x="44" y="317" font-family="PingFang SC,sans-serif" font-size="11.5" fill="#cfc8ba">TA 的八字需要靠近。</text>
+        <text x="44" y="335" font-family="PingFang SC,sans-serif" font-size="11.5" fill="#9a9484">这不是不合，而是功课。</text>
+        <!-- relationship timeline curve -->
+        <text x="28" y="372" font-family="Songti SC,serif" font-size="12.5" fill="#C9A35A">关 系 能 量 曲 线</text>
+        <rect x="28" y="382" width="224" height="96" rx="10" fill="#12141c" stroke="#2a2e3c"/>
+        <polyline points="40,452 78,420 116,440 154,398 192,452 240,410"
+          fill="none" stroke="#5E9B72" stroke-width="2.5"/>
+        <circle cx="116" cy="440" r="4" fill="#C0392B"/>
+        <circle cx="154" cy="398" r="4" fill="#C9A35A"/>
+        <text x="116" y="472" text-anchor="middle" font-family="PingFang SC,sans-serif" font-size="9" fill="#7a7361">磨合</text>
+        <text x="154" y="390" text-anchor="middle" font-family="PingFang SC,sans-serif" font-size="9" fill="#C9A35A">明年·关键</text>
+        <!-- CTA -->
+        <rect x="28" y="496" width="224" height="44" rx="22" fill="none" stroke="#C9A35A"/>
+        <text x="140" y="523" text-anchor="middle" font-family="PingFang SC,sans-serif" font-size="13.5" fill="#E0C588">解锁完整流年合运 →</text>
+      </svg>
+      <div class="cap">合盘报告 · 敢说"不合"</div>
+      <div class="sub">五行互补环 + 精确百分位 + 带张力的结论 + 前瞻的关系曲线。给回访理由，也给转发理由。</div>
+    </div>
+
+    <!-- ============ SHOT 3: 盲合 / 分享解锁 ============ -->
+    <div class="shot">
+      <svg viewBox="0 0 280 580" role="img" aria-label="盲合邀请与分享解锁界面样例">
+        <rect x="6" y="6" width="268" height="568" rx="34" fill="#0f111a" stroke="#33384A"/>
+        <rect x="14" y="14" width="252" height="552" rx="28" fill="#16181F"/>
+        <text x="140" y="58" text-anchor="middle" font-family="Songti SC,serif" font-size="20" fill="#F4EFE4">还差最后一步</text>
+        <text x="140" y="84" text-anchor="middle" font-family="PingFang SC,sans-serif" font-size="12" fill="#8b8576">真实契合度，需要两个人共同揭晓</text>
+        <!-- two avatars, one filled one empty -->
+        <g transform="translate(96,150)">
+          <circle r="30" fill="#3E6B96"/><text y="6" text-anchor="middle" font-family="Songti SC,serif" font-size="22" fill="#dce8f2">你</text>
+        </g>
+        <g transform="translate(184,150)">
+          <circle r="30" fill="none" stroke="#C9A35A" stroke-width="2" stroke-dasharray="5 5"/>
+          <text y="7" text-anchor="middle" font-family="PingFang SC,sans-serif" font-size="20" fill="#C9A35A">?</text>
+        </g>
+        <text x="140" y="158" text-anchor="middle" font-family="Songti SC,serif" font-size="14" fill="#9a9484">+</text>
+        <!-- blurred locked report preview -->
+        <rect x="34" y="208" width="212" height="150" rx="12" fill="#1b1e2a"/>
+        <g opacity=".35">
+          <rect x="50" y="226" width="120" height="10" rx="5" fill="#cfc8ba"/>
+          <rect x="50" y="246" width="180" height="8" rx="4" fill="#8b8576"/>
+          <rect x="50" y="262" width="160" height="8" rx="4" fill="#8b8576"/>
+          <rect x="50" y="278" width="180" height="8" rx="4" fill="#8b8576"/>
+          <rect x="50" y="294" width="100" height="8" rx="4" fill="#8b8576"/>
+        </g>
+        <!-- lock -->
+        <g transform="translate(140,330)">
+          <rect x="-13" y="-6" width="26" height="20" rx="3" fill="#C9A35A"/>
+          <path d="M-7,-6 v-6 a7 7 0 0 1 14 0 v6" fill="none" stroke="#C9A35A" stroke-width="3"/>
+        </g>
+        <!-- share to unlock -->
+        <rect x="34" y="386" width="212" height="50" rx="25" fill="#C0392B"/>
+        <text x="140" y="409" text-anchor="middle" font-family="PingFang SC,sans-serif" font-size="14" fill="#fff">邀 TA 一起测 · 解锁合盘</text>
+        <text x="140" y="426" text-anchor="middle" font-family="PingFang SC,sans-serif" font-size="10" fill="#f3cfc9">TA 也会得到自己的命格卡 ♥</text>
+        <!-- alt unlock -->
+        <text x="140" y="466" text-anchor="middle" font-family="PingFang SC,sans-serif" font-size="11.5" fill="#8b8576">或 分享到 1 个群，立即解锁</text>
+        <line x1="60" y1="486" x2="220" y2="486" stroke="#2a2e3c"/>
+        <!-- whisper / 暗恋 entry -->
+        <text x="140" y="516" text-anchor="middle" font-family="Songti SC,serif" font-size="12.5" fill="#9a7bbf">· 悄悄话 ·</text>
+        <text x="140" y="538" text-anchor="middle" font-family="PingFang SC,sans-serif" font-size="11" fill="#7a7361">匿名测一测你和 TA 的缘分</text>
+      </svg>
+      <div class="cap">盲合 + 分享解锁</div>
+      <div class="sub">逼出对方共同参与，每个用户都成为传播节点；用"分享"替代"付费"，在收款开通前零成本裂变。</div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap reveal">
+  <p class="eyebrow">肆 · 核 心 玩 法</p>
+  <h2><span class="num">四</span>魂，落在每一个交互里</h2>
+
+  <div class="feat">
+    <div class="fnum">其 一</div>
+    <div>
+      <h3>八字 MBTI 化 · 单人命格卡</h3>
+      <p>合盘私密、不爱晒；而"我是什么型"是身份标签，分享=自我表达。把日主与格局包装成有名字、有人设、有视觉的命格类型（如「破浪者·壬水」），用户测完主动晒卡，合盘成为自然的下一步。</p>
+      <span class="tag">魂之体现：先给用户"自己"，再谈"我们"</span>
+    </div>
+  </div>
+
+  <div class="feat">
+    <div class="fnum">其 二</div>
+    <div>
+      <h3>盲合机制 · 逼出双向参与</h3>
+      <p>不让一个人填两个生日。A 测完只拿到锁住的合盘，必须邀请 B；B 进来先得到自己的命格卡（不是白给 A 打工），再揭晓合盘。于是每个人既是消费者也是传播者，裂变系数才能 &gt; 1。可加"盲猜契合度"环节，用猜测与现实的反差制造话题。</p>
+      <span class="tag">魂之体现：缘分要两个人一起揭晓</span>
+    </div>
+  </div>
+
+  <div class="feat">
+    <div class="fnum">其 三</div>
+    <div>
+      <h3>分享解锁 · 把收款限制变成增长引擎</h3>
+      <p>支付能力开通前，解锁方式不是付钱，而是"分享给 3 位好友 / 1 个群"。把用户的传播变成产品的核心机制。个体户注册、微信支付就绪后，再叠加付费档（深度流年合运分析）。</p>
+      <span class="tag">魂之体现：先让文化流动，再让钱流动</span>
+    </div>
+  </div>
+
+  <div class="feat">
+    <div class="fnum">其 四</div>
+    <div>
+      <h3>敢说"不合" · 把张力当卖点</h3>
+      <p>所有合盘都在说好话，所以没人讨论。带具体命理依据的张力结论（日主相克、五行对冲）会让情侣互相转发、互相辩论——这就是免费传播，而八字"有理有据"比星座更经得起较真。</p>
+      <span class="tag">魂之体现：真，比讨好更有力量</span>
+    </div>
+  </div>
+
+  <div class="feat">
+    <div class="fnum">其 五</div>
+    <div>
+      <h3>知其所以然 · 无痛学到真东西</h3>
+      <p>每个结论旁附文化解释："壬水为江河大海之水，《滴天髓》言其通河……"古典原文配现代白话。用户在玩的过程中学到真知识，知识本身就是分享素材；同命格的历史名人、节气时辰意象等"文化彩蛋"作为传播载体。</p>
+      <span class="tag">魂之体现：用完，文化要留下来</span>
+    </div>
+  </div>
+
+  <div class="feat">
+    <div class="fnum">其 六</div>
+    <div>
+      <h3>悄悄话 · 匿名缘分测（谨慎设计）</h3>
+      <p>单身用户可匿名测与暗恋对象的合盘——小红书爆款选题。进阶可生成匿名链接邀对方答题。<em>务必守住隐私边界</em>：链接不暴露发起人信息，杜绝变成骚扰工具。这是传播力极强但需要在产品上小心处理的一招。</p>
+      <span class="tag">魂之体现：好玩，但有分寸</span>
+    </div>
+  </div>
+</section>
+
+<section class="wrap reveal">
+  <p class="eyebrow">伍 · 冷 啟 動 · 變 現 · 路 線</p>
+  <h2><span class="num">五</span>2 人团队，怎么把它跑起来</h2>
+
+  <h3>冷启动 · 内容先行，零买量</h3>
+  <p>小红书种草（"用八字算了我和男友的合盘，结果让我震惊…"）、抖音专业人设解读、知乎长尾问答导流。产品自带的命格卡与五行知识卡，让每一次分享都在替你做内容。</p>
+
+  <h3>变现 · 分阶段</h3>
+  <table class="tbl">
+    <tr><th>阶段</th><th>变现方式</th><th>月成本</th></tr>
+    <tr><td>支付开通前</td><td>分享解锁裂变 · 个人号 1v1 付费咨询（199–499/次）</td><td>≈ 0</td></tr>
+    <tr><td>个体户就绪后</td><td>单次解锁 9.9–19.9 · 年订阅 39.9（流年提醒，复购高）</td><td>云开发 0–100 元</td></tr>
+    <tr><td>规模化</td><td>AI 个性化解读增值 · 代账外包托管申报</td><td>API 按量 + 代账 100–200 元</td></tr>
+  </table>
+
+  <h3>路线图</h3>
+  <div class="road">
+    <div class="phase"><span class="t">第 1–2 月</span><h4>合盘 MVP + 命格卡上线</h4><p>复用已有八字算法，云开发 Serverless，先做免费版与分享解锁。同步启动个体工商户注册。</p></div>
+    <div class="phase"><span class="t">第 3 月</span><h4>内容冷启动 · 跑通裂变</h4><p>小红书 / 抖音 / 知乎三线内容，验证分享解锁的传播系数与个人号咨询转化。</p></div>
+    <div class="phase"><span class="t">第 4–6 月</span><h4>支付接入 · 深度功能迭代</h4><p>微信支付就绪，上线付费档与年订阅；加入流年合运、关系曲线进阶等高级能力。</p></div>
+    <div class="phase"><span class="t">第 6 月+</span><h4>以合盘流量撬动差异化起名</h4><p>用积累的用户与口碑，开"合盘验证过才放心命名"的差异化起名线，吃掉一次性高客单价需求。</p></div>
+  </div>
+</section>
+
+<div class="closing wrap reveal">
+  <span class="seal">同声</span>
+  <p class="line">让祖先的智慧，<br>成为<b>这一代人愿意主动分享的样子</b>。</p>
+  <small>同 声 相 应 · 同 气 相 求</small>
+</div>
+
+<script>
+(function(){
+  var ro = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // inject keyframes for ring rotation only if motion allowed
+  if(!ro){
+    var st=document.createElement('style');
+    st.textContent='@keyframes rot{to{transform:rotate(360deg)}}';
+    document.head.appendChild(st);
+  } else {
+    document.querySelectorAll('.spin').forEach(function(e){e.style.animation='none';});
+  }
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(e){io.observe(e);});
+})();
+</script>
